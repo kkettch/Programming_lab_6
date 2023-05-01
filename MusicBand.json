@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Group1",
+    "coordinates": {
+      "x": 200,
+      "y": 200
+    },
+    "creationDate": "2023-04-29T16:47:21.105532",
+    "numberOfParticipants": 3,
+    "albumsCount": 2,
+    "description": "какая-то группа1",
+    "genre": "POP",
+    "frontMan": {
+      "name": "jack",
+      "birthday": "Sat Apr 03 20:00:00 UTC 2004",
+      "height": 6.6,
+      "weight": 70.0,
+      "passportID": "1234"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Group2",
+    "coordinates": {
+      "x": 100,
+      "y": 150
+    },
+    "creationDate": "2023-04-29T16:47:21.105532",
+    "numberOfParticipants": 6,
+    "albumsCount": 8,
+    "description": "какая-то группа2",
+    "genre": "MATH_ROCK",
+    "frontMan": {
+      "name": "john",
+      "birthday": "Sat Apr 03 20:00:00 UTC 2004",
+      "height": 6.3,
+      "weight": 77.0,
+      "passportID": "123456"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Group3",
+    "coordinates": {
+      "x": 140,
+      "y": 200
+    },
+    "creationDate": "2023-04-29T16:47:21.105532",
+    "numberOfParticipants": 4,
+    "albumsCount": 3,
+    "description": "какая-то группа3",
+    "genre": "PSYCHEDELIC_ROCK",
+    "frontMan": {
+      "name": "jason",
+      "birthday": "Sat Apr 03 20:00:00 UTC 2004",
+      "height": 7.6,
+      "weight": 90.0,
+      "passportID": "98765"
+    }
+  }
+]

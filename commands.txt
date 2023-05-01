@@ -1,0 +1,12 @@
+
+        shjsj
+
+
+        help 65
+asd
+
+
+
+help
+
+execute_script script.txt
