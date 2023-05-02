@@ -3,6 +3,11 @@ package Commands;
 import FileManager.FileManager;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+/**
+ * Класс реализует выполнение команды save
+ * Сохранение коллекции в файл .json
+ * @author maria
+ */
 public class SaveCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

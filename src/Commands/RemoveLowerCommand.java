@@ -2,6 +2,11 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+/**
+ * Класс реализует выполнение команды remove_lower
+ * Удаление элементов меньше, чем заданный
+ * @author maria
+ */
 public class RemoveLowerCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

@@ -14,6 +14,11 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+
+/**
+ * Класс для реализации парсинга полей типа данных Date
+ * @author maria
+ */
 public class DateAdapter implements JsonSerializer<Date>, JsonDeserializer<Date> {
     private final DateFormat dateFormat;
     public DateAdapter() {

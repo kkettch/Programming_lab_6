@@ -2,6 +2,11 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+/**
+ * Класс реализует выполнение команды show
+ * Вывод всех элементов коллекции
+ * @author maria
+ */
 public class ShowCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

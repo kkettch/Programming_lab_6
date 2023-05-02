@@ -7,6 +7,11 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Random;
+
+/**
+ * Класс для запроса валидных полей у пользователя при выполнении команды add
+ * @author maria
+ */
 public class CreatorOfMusicBand {
     private final ConsoleManager consoleManager = new ConsoleManager();
     private final CollectionManager collectionManager;
@@ -268,6 +273,11 @@ public class CreatorOfMusicBand {
         String passportID = assignPersonPassportID();
         return new Person(name, birthday, height, weight, passportID);
     }
+
+    /**
+     * Установление всех полей в объект класса MusicBand
+     * @param musicBand объекта класса MusicBand
+     */
     public void setMusicBandByUser(MusicBand musicBand) {
         try {
             musicBand.setId(assignID());
@@ -276,6 +286,11 @@ public class CreatorOfMusicBand {
             consoleManager.println(e.getMessage());
         }
     }
+
+    /**
+     * Установление всех полей в объекта класса MusicBand без изменения имеющегося id
+     * @param musicBand
+     */
     public void setMusicBandForUpdateIdCommand(MusicBand musicBand) {
         setMusicBand(musicBand);
         collectionManager.getMusicBandVector().set(0, musicBand);

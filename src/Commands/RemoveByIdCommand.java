@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс реализует выполнение команды remove_by_id
+ * Удаление элемента по id
+ * @author maria
+ */
 public class RemoveByIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

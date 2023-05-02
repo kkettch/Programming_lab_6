@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CommandManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс содержит реализацию команды help
+ * Вывод в консоль всех доступных команд
+ * @author maria
+ */
 public class HelpCommand extends AbstractCommand{
     private final ConsoleManager consoleManager;
     private final CommandManager commandManager = new CommandManager();

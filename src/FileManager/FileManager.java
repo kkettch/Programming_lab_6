@@ -12,6 +12,11 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.*;
+
+/**
+ * Класс для реализации чтения коллекции из файла и записи коллекции в файл
+ * @author maria
+ */
 public class FileManager {
     private final Gson gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).registerTypeAdapter(
             Date.class, new DateAdapter()).setPrettyPrinting().create();

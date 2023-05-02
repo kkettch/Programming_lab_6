@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс реализует выполнение команды info
+ * Вывод информации о коллекции
+ * @author maria
+ */
 public class InfoCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

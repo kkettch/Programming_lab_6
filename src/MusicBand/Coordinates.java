@@ -2,6 +2,12 @@ package MusicBand;
 
 import Exceptions.IllegalValuesException;
 import Utility.Validation;
+
+/**
+ * Шаблон класса Coordinates. Содержит геттеры и сеттеры для всех полей
+ * Содержит ограничения прописанные для каждого поля
+ * @author maria
+ */
 public class Coordinates {
     private int x; //Максимальное значение поля: 223
     private int y; //Значение поля должно быть больше -326

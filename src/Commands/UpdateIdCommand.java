@@ -3,6 +3,11 @@ package Commands;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 import Utility.CreatorOfMusicBand;
+/**
+ * Класс реализует выполнение команды update
+ * Обновление элемента коллекции по id
+ * @author maria
+ */
 public class UpdateIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

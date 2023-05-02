@@ -1,5 +1,10 @@
 package Utility;
 import java.util.Scanner;
+
+/**
+ * Класс для работы с консолью
+ * @author maria
+ */
 public class ConsoleManager {
     private final Scanner sc = new Scanner(System.in);
     public void println(Object msg) {

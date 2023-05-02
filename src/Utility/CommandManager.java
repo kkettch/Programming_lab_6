@@ -6,6 +6,13 @@ import FileManager.FileManager;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * Реализация метода commandExecute для выполнения всех комманд
+ * Получения списка всех комманд
+ * Реализация метода scriptExecute для выполнения комманд из скрипта
+ * @author maria
+ */
+
 public class CommandManager {
     private HashMap<String, AbstractCommand> commandHashMap;
     private List<AbstractCommand> listOfCommand;

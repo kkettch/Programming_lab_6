@@ -1,5 +1,10 @@
 package MusicBand;
 
+/**
+ * Шаблон класса enum MusicGenre. Содержит перечисление возможных музыкальных жанров
+ * Содержит метод для получения списка музыкальных жанров
+ * @author maria
+ */
 public enum MusicGenre {
     PSYCHEDELIC_ROCK,
     POP,

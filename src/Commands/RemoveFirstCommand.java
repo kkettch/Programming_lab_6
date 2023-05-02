@@ -2,6 +2,11 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+/**
+ * Класс реализует выполнение команды remove_first
+ * Удаление первого элемента коллекции
+ * @author maria
+ */
 public class RemoveFirstCommand extends AbstractCommand {
     ConsoleManager consoleManager = new ConsoleManager();
     CollectionManager collectionManager = new CollectionManager();

@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс содержит реализацию команды filter_contains_description
+ * Нахождение элементов с совпадающим подстрокой из поля description
+ * @author maria
+ */
 public class FilterContainsDescriptionCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

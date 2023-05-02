@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс содержит реализацию команды clear
+ * Очищение коллекции
+ * @author maria
+ */
 public class ClearCommand extends AbstractCommand {
     ConsoleManager consoleManager = new ConsoleManager();
     CollectionManager collectionManager = new CollectionManager();

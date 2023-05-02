@@ -6,6 +6,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+/**
+ * Класс для валидации полей
+ * @author maria
+ */
 public class Validation {
     private static final List<Integer> listOfIdValidation = new ArrayList<>();
     private static final List<String> listOfPassportIDValidation = new ArrayList<>();

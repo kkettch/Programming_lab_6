@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Клас реализует выполнение команды filter_contains_description
+ * Вывод поля genre всех элементов в порядке убывания
+ * @author maria
+ */
 public class PrintFieldDescendingGenre extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

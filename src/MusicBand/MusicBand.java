@@ -3,6 +3,12 @@ package MusicBand;
 import Exceptions.IllegalValuesException;
 import Utility.Validation;
 import java.time.LocalDateTime;
+
+/**
+ * Шаблон класса MusicBand. Содержит геттеры и сеттеры для всех полей
+ * Содержит ограничения прописанные для каждого поля
+ * @author maria
+ */
 public class MusicBand {
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой

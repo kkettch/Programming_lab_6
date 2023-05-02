@@ -1,6 +1,12 @@
 package Commands;
 
 import Utility.ConsoleManager;
+
+/**
+ * Класс содержит реализцаию команды exit
+ * Завершение работы консольного приложения
+ * @author maria
+ */
 public class ExitCommand extends AbstractCommand {
     private final ConsoleManager consoleManager;
     public ExitCommand(){

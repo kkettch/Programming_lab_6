@@ -4,6 +4,12 @@ import MusicBand.MusicBand;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 import Utility.CreatorOfMusicBand;
+
+/**
+ * Класс содержит реализацию команды add_if_max
+ * Добавление нового элемента в коллекцию, если он больше наибольшего элемента в коллекции
+ * @author maria
+ */
 public class AddIfMaxCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

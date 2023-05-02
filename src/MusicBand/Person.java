@@ -1,8 +1,12 @@
 package MusicBand;
 
-import Exceptions.IllegalValuesException;
-import Utility.Validation;
 import java.util.Date;
+
+/**
+ * Шаблон класса Person. Содержит геттеры и сеттеры для всех полей
+ * Содержит ограничения прописанные для каждого поля
+ * @author maria
+ */
 public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private java.util.Date birthday; //Поле не может быть null

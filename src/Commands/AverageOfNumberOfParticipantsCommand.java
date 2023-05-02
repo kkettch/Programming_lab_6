@@ -2,6 +2,12 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
+
+/**
+ * Класс содержит реализацию команды average_of_number_of_participants
+ * Вывод среднего значение поля numberOfParticipants
+ * @author maria
+ */
 public class AverageOfNumberOfParticipantsCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

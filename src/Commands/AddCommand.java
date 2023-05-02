@@ -4,6 +4,12 @@ import MusicBand.MusicBand;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 import Utility.CreatorOfMusicBand;
+
+/**
+ * Класс содержит реализацию команды add
+ * Добавление нового элемента в коллекцию
+ * @author maria
+ */
 public class AddCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

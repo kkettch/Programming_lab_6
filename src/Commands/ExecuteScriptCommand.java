@@ -7,6 +7,12 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
+
+/**
+ * Класс содержит реализацию команды execute_script
+ * Чтение и выполнение команд из файла
+ * @author maria
+ */
 public class ExecuteScriptCommand extends AbstractCommand{
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;

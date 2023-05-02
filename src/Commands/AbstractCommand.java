@@ -1,6 +1,11 @@
 package Commands;
 
 import java.io.FileNotFoundException;
+
+/**
+ * Абстрактный класс содержит базовые методы для реализации комманд
+ * @author maria
+ */
 public abstract class AbstractCommand implements Command {
     private Object arguments;
     public Object getArguments() {
