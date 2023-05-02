@@ -4,31 +4,24 @@ import MusicBand.MusicBand;
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
 import Utility.CreatorOfMusicBand;
-
 public class AddIfMaxCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;
     private CreatorOfMusicBand creatorOfMusicBand;
-
     public AddIfMaxCommand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
         this.consoleManager = new ConsoleManager();
         this.creatorOfMusicBand = new CreatorOfMusicBand(collectionManager);
     }
-
     public AddIfMaxCommand(){}
-
-
     @Override
     public String getName() {
         return "add_if_max";
     }
-
     @Override
     public String getDescription() {
         return "добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции";
     }
-
     @Override
     public void execute(String arg) {
         if (checkArgument(getArguments())) {
@@ -43,7 +36,6 @@ public class AddIfMaxCommand extends AbstractCommand {
         }
 
     }
-
     @Override
     public boolean checkArgument(Object arguments) {
         if (arguments == null) {

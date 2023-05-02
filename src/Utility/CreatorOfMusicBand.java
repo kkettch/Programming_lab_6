@@ -1,37 +1,26 @@
 package Utility;
-
 import Exceptions.*;
 import MusicBand.*;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Random;
-
 public class CreatorOfMusicBand {
     private final ConsoleManager consoleManager = new ConsoleManager();
     private final CollectionManager collectionManager;
     public CreatorOfMusicBand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
     }
-
     public Integer assignID() {
         Integer id;
-        while(true) {
+        do {
             Random random = new Random();
-            int randomNumber = random.nextInt(100000) + 1;
-            id = randomNumber;
-            if (!collectionManager.checkUniqueId(id)) {
-                break;
-            }
-        }
+            id = random.nextInt(100000) + 1;
+        } while (collectionManager.checkUniqueId(id));
         return id;
-
     }
-
-
     public String assignName() {
         String name;
         while (true) {
@@ -68,7 +57,6 @@ public class CreatorOfMusicBand {
         }
         return x;
     }
-
     public int assignY() {
         String stringY;
         int y;
@@ -91,13 +79,11 @@ public class CreatorOfMusicBand {
         }
         return y;
     }
-
-    public Coordinates assignCoordinates() {
+    public Coordinates assignCoordinates() throws IllegalValuesException {
         int x = assignX();
         int y = assignY();
         return new Coordinates(x, y);
     }
-
     public int assignNumberOfParticipants() {
         String stringNumberOfParticipants;
         int numberOfParticipants;
@@ -119,7 +105,6 @@ public class CreatorOfMusicBand {
         }
         return numberOfParticipants;
     }
-
     public Integer assignAlbumsCount() {
         String stringAlbumsCount;
         Integer albumsCount;
@@ -142,7 +127,6 @@ public class CreatorOfMusicBand {
         }
         return albumsCount;
     }
-
     public String assignDescription() {
         String description;
         consoleManager.print("Введите описание группы (опционально): ");
@@ -152,7 +136,6 @@ public class CreatorOfMusicBand {
         }
         return description;
     }
-
     public MusicGenre assignMusicGenre() {
         String stringMusicGenre;
         MusicGenre musicGenre;
@@ -172,11 +155,9 @@ public class CreatorOfMusicBand {
                     consoleManager.println("В списке нет указанного жанра. Попробуйте снова!");
                 }
             }
-
         }
         return musicGenre;
     }
-
     public String assignPersonName() {
         String personName;
         while(true) {
@@ -191,15 +172,14 @@ public class CreatorOfMusicBand {
         }
         return personName;
     }
-
-    public Date assignPersonBithday() {
+    public Date assignPersonBirthday() {
         Date date;
-        String personBithday = "";
+        String personBirthday;
         while(true) {
             consoleManager.print("Введите дату рождения солиста (формат: yyyy-MM-dd): ");
             try{
-                personBithday = consoleManager.gerString().trim();
-                String[] personBirthdayArray = personBithday.split("-");
+                personBirthday = consoleManager.gerString().trim();
+                String[] personBirthdayArray = personBirthday.split("-");
                 int year = Integer.parseInt(personBirthdayArray[0]);
                 int month = Integer.parseInt(personBirthdayArray[1]);
                 int day = Integer.parseInt(personBirthdayArray[2]);
@@ -211,7 +191,7 @@ public class CreatorOfMusicBand {
                     consoleManager.println("День указан неверно");
                 } else {
                     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    date = dateFormat.parse(personBithday);
+                    date = dateFormat.parse(personBirthday);
                     break;
                 }
             } catch (NumberFormatException msg) {
@@ -222,7 +202,6 @@ public class CreatorOfMusicBand {
         }
         return date;
     }
-
     public Double assignPersonHeight() {
         String stringPersonHeight;
         double personHeight;
@@ -241,7 +220,6 @@ public class CreatorOfMusicBand {
         }
         return personHeight;
     }
-
     public float assignPersonWeight() {
         String stringPersonWeight;
         float personWeight;
@@ -260,7 +238,6 @@ public class CreatorOfMusicBand {
         }
         return personWeight;
     }
-
     public String assignPersonPassportID() {
         String passportID;
         while(true) {
@@ -275,7 +252,6 @@ public class CreatorOfMusicBand {
                     if (collectionManager.checkUniquePassportID(passportID)) throw new FieldMustBeUniqueException();
                     break;
                 }
-
             }catch (WrongFieldLimitException msg) {
                 consoleManager.println("Длина поля passportID не должна быть больше 21 символа!");
             }catch (FieldMustBeUniqueException msg) {
@@ -284,35 +260,28 @@ public class CreatorOfMusicBand {
         }
         return passportID;
     }
-
-    public Person assignPerson() {
+    public Person assignPerson() throws IllegalValuesException {
         String name = assignPersonName();
-        Date birthday = assignPersonBithday();
+        Date birthday = assignPersonBirthday();
         Double height = assignPersonHeight();
         float weight = assignPersonWeight();
         String passportID = assignPersonPassportID();
         return new Person(name, birthday, height, weight, passportID);
     }
-
     public void setMusicBandByUser(MusicBand musicBand) {
         try {
             musicBand.setId(assignID());
-            musicBand.setName(assignName());
-            musicBand.setCoordinates(assignCoordinates());
-            musicBand.setCreationDate(LocalDateTime.now());
-            musicBand.setNumberOfParticipants(assignNumberOfParticipants());
-            musicBand.setAlbumsCount(assignAlbumsCount());
-            musicBand.setDescription(assignDescription());
-            musicBand.setGenre(assignMusicGenre());
-            musicBand.setFrontMan(assignPerson());
+            setMusicBand(musicBand);
         } catch (IllegalValuesException e) {
             consoleManager.println(e.getMessage());
         }
     }
-
-    public void setMusicBandForUpdateIdCommand(MusicBand musicBand, Integer id) {
-        try{
-            musicBand.setId(id);
+    public void setMusicBandForUpdateIdCommand(MusicBand musicBand) {
+        setMusicBand(musicBand);
+        collectionManager.getMusicBandVector().set(0, musicBand);
+    }
+    public void setMusicBand(MusicBand musicBand) {
+        try {
             musicBand.setName(assignName());
             musicBand.setCoordinates(assignCoordinates());
             musicBand.setCreationDate(LocalDateTime.now());
@@ -322,7 +291,7 @@ public class CreatorOfMusicBand {
             musicBand.setGenre(assignMusicGenre());
             musicBand.setFrontMan(assignPerson());
         } catch (IllegalValuesException e) {
-            consoleManager.println(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 }

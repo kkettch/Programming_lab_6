@@ -2,11 +2,9 @@ package Commands;
 
 import Utility.CollectionManager;
 import Utility.ConsoleManager;
-
 public class RemoveLowerCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private ConsoleManager consoleManager;
-
     public RemoveLowerCommand(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
         this.consoleManager = new ConsoleManager();
@@ -16,12 +14,10 @@ public class RemoveLowerCommand extends AbstractCommand {
     public String getName() {
         return "remove_lower";
     }
-
     @Override
     public String getDescription() {
         return "удалить из коллекции все элементы, меньшие, чем заданный (сравнение по количеству участников)";
     }
-
     @Override
     public void execute(String arg) {
         if (checkArgument(getArguments())) {
@@ -35,7 +31,6 @@ public class RemoveLowerCommand extends AbstractCommand {
             }
         }
     }
-
     @Override
     public boolean checkArgument(Object arguments) {
         if (arguments == null) {

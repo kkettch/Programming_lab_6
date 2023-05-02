@@ -12,20 +12,15 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.*;
-import java.io.PrintWriter;
-
-
 public class FileManager {
-    private Gson gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).registerTypeAdapter(
-            Date.class, new DateAdapt()).setPrettyPrinting().create();
-    private String fileName;
-    private ConsoleManager consoleManager = new ConsoleManager();
-
+    private final Gson gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).registerTypeAdapter(
+            Date.class, new DateAdapter()).setPrettyPrinting().create();
+    private final String fileName;
+    private final ConsoleManager consoleManager = new ConsoleManager();
     public FileManager(String fileName){
         this.fileName= fileName;
     }
-    public FileManager(){}
-    public Vector<MusicBand> readFromFile() throws IOException {
+    public Vector<MusicBand> readFromFile() {
         Vector<MusicBand> musicBandVector = new Vector<>();
         File file = new File(fileName);
         try (Scanner scanner = new Scanner(file)) {
@@ -55,7 +50,6 @@ public class FileManager {
         }
         return musicBandVector;
     }
-
     public void writeCollection(Collection<?> collection, String name) {
         File file = new File(name);
         if (name!=null && file.canWrite() ) {
@@ -66,16 +60,6 @@ public class FileManager {
             }
         } else consoleManager.println("Системная переменная с загрузочным файлом не найдена!");
     }
-    public void writeCollection(Collection<?> collection, FileManager fileManagerReader) {
-        try {
-            PrintWriter printer = new PrintWriter(new File(fileManagerReader.getFileName()));
-            printer.write(gsonBuilder.toJson(collection));
-            consoleManager.println("Коллекция успешна сохранена в файл!");
-        } catch (IOException exception) {
-            consoleManager.println("Загрузочный файл является директорией/не может быть открыт!");
-        }
-    }
-
     public String getFileName(){
         return fileName;
     }

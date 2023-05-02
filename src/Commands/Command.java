@@ -1,7 +1,6 @@
 package Commands;
 
 import java.io.FileNotFoundException;
-
 public interface Command {
     String getName();
     String getDescription();

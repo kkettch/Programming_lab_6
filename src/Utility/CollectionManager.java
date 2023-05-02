@@ -5,8 +5,6 @@ import java.util.*;
 public class CollectionManager {
     private Vector<MusicBand> musicBandVector = new Vector<>();
     private final ConsoleManager consoleManager = new ConsoleManager();
-    private CollectionManager collectionManager;
-
     public CollectionManager() {}
     public CollectionManager(Vector<MusicBand> musicBandVector) {
         this.musicBandVector = musicBandVector;
@@ -76,7 +74,7 @@ public class CollectionManager {
         }
     }
     public void findElementsByDescription(String description) {
-        List<MusicBand> musicBandList = new ArrayList<MusicBand>();
+        List<MusicBand> musicBandList = new ArrayList<>();
         for (MusicBand musicBand : musicBandVector) {
             if (musicBand.getDescription().contains(description)) {
                 musicBandList.add(musicBand);
@@ -96,7 +94,7 @@ public class CollectionManager {
             while (iterator.hasNext()) {
                 MusicBand musicBand = iterator.next();
                 if (musicBand.getNumberOfParticipants() < numberOfParticipants) {
-                    consoleManager.println("Элемент с именем '" + musicBand.getName().toString() + "' был удален из коллекции");
+                    consoleManager.println("Элемент с именем '" + musicBand.getName() + "' был удален из коллекции");
                     iterator.remove();
                 }
             }
@@ -136,10 +134,11 @@ public class CollectionManager {
     public Vector<MusicBand> getMusicBandVector() {
         return musicBandVector;
     }
-    public void updateElement(MusicBand musicBand, Integer id) {
+    public void updateElement(MusicBand musicBand, Integer id, CollectionManager collect) {
         if (findElementById(id) != null) {
-            CreatorOfMusicBand creatorOfMusicBand = new CreatorOfMusicBand(collectionManager);
-            creatorOfMusicBand.setMusicBandForUpdateIdCommand(musicBand, id);
+            CreatorOfMusicBand creatorOfMusicBand = new CreatorOfMusicBand(collect);
+            creatorOfMusicBand.setMusicBandForUpdateIdCommand(musicBand);
+            consoleManager.println("Элемент с id-" + id + " был обновлен!");
         } else {
             consoleManager.println("В коллекции нет элемента с введенным id!");
         }

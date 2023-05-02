@@ -5,7 +5,6 @@ public enum MusicGenre {
     POP,
     MATH_ROCK,
     BRIT_POP;
-
     public static String nameList() {
         StringBuilder nameList = new StringBuilder();
         for (MusicGenre musicGenre : values()) {
@@ -14,4 +13,3 @@ public enum MusicGenre {
         return nameList.substring(0, nameList.length()-2);
     }
 }
-
