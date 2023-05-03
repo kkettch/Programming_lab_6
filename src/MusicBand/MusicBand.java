@@ -2,6 +2,7 @@ package MusicBand;
 
 import Exceptions.IllegalValuesException;
 import Utility.Validation;
+import com.google.gson.annotations.*;
 import java.time.LocalDateTime;
 
 /**
@@ -10,16 +11,26 @@ import java.time.LocalDateTime;
  * @author maria
  */
 public class MusicBand {
+    @Expose
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    @Expose
     private String name; //Поле не может быть null, Строка не может быть пустой
+    @Expose
     private Coordinates coordinates; //Поле не может быть null
+    @Expose
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    @Expose
     private int numberOfParticipants; //Значение поля должно быть больше 0
+    @Expose
     private Integer albumsCount; //Поле может быть null, Значение поля должно быть больше 0
+    @Expose
     private String description; //Поле может быть null
+    @Expose
     private MusicGenre genre; //Поле может быть null
+    @Expose
     private Person frontMan; //Поле может быть null
     private final Validation validation = new Validation();
+
     public MusicBand(Integer id, String name, Coordinates coordinates, LocalDateTime creationDate, int numberOfParticipants,
                      Integer albumsCount, String description, MusicGenre genre, Person frontMan) throws IllegalValuesException {
         this.setId(id);
@@ -60,6 +71,7 @@ public class MusicBand {
     public Person getFrontMan() {
         return frontMan;
     }
+
     @Override
     public String toString() {
         String info = "";

@@ -1,5 +1,7 @@
 package MusicBand;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Date;
 
 /**
@@ -8,10 +10,15 @@ import java.util.Date;
  * @author maria
  */
 public class Person {
+    @Expose
     private String name; //Поле не может быть null, Строка не может быть пустой
+    @Expose
     private java.util.Date birthday; //Поле не может быть null
+    @Expose
     private Double height; //Поле не может быть null, Значение поля должно быть больше 0
+    @Expose
     private float weight; //Значение поля должно быть больше 0
+    @Expose
     private String passportID; //Строка не может быть пустой, Значение этого поля должно быть уникальным, Длина строки не должна быть больше 21, Поле может быть null
      public Person(String name, Date birthday, Double height, float weight, String passportID) {
         this.setPersonName(name);

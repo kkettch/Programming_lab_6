@@ -224,11 +224,28 @@ public class CollectionManager {
     public void updateElement(MusicBand musicBand, Integer id, CollectionManager collect) {
         if (findElementById(id) != null) {
             CreatorOfMusicBand creatorOfMusicBand = new CreatorOfMusicBand(collect);
-            creatorOfMusicBand.setMusicBandForUpdateIdCommand(musicBand);
+            Integer numberInCollection = getNumberInCollection(musicBand);
+            creatorOfMusicBand.setMusicBandForUpdateIdCommand(musicBand, numberInCollection);
             consoleManager.println("Элемент с id-" + id + " был обновлен!");
         } else {
             consoleManager.println("В коллекции нет элемента с введенным id!");
         }
+    }
+
+    /**
+     * Получение индекса элемента в коллекции для его обновления
+     * @param music элемент коллекции
+     * @return индекс
+     */
+    public Integer getNumberInCollection(MusicBand music) {
+        int i = 0;
+        for (MusicBand musicBand : musicBandVector) {
+            if (musicBand.equals(music)) {
+                return i;
+            }
+            i++;
+        }
+        return null;
     }
 
     /**

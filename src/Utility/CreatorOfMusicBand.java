@@ -291,9 +291,9 @@ public class CreatorOfMusicBand {
      * Установление всех полей в объекта класса MusicBand без изменения имеющегося id
      * @param musicBand
      */
-    public void setMusicBandForUpdateIdCommand(MusicBand musicBand) {
+    public void setMusicBandForUpdateIdCommand(MusicBand musicBand, Integer numberInCollection) {
         setMusicBand(musicBand);
-        collectionManager.getMusicBandVector().set(0, musicBand);
+        collectionManager.getMusicBandVector().set(numberInCollection, musicBand);
     }
     public void setMusicBand(MusicBand musicBand) {
         try {

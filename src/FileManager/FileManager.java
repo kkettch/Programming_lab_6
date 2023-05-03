@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
@@ -18,8 +19,12 @@ import java.util.*;
  * @author maria
  */
 public class FileManager {
-    private final Gson gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).registerTypeAdapter(
-            Date.class, new DateAdapter()).setPrettyPrinting().create();
+    private final Gson gsonBuilder = new GsonBuilder()
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
+            .registerTypeAdapter(Date.class, new DateAdapter())
+            .setPrettyPrinting()
+            .excludeFieldsWithoutExposeAnnotation()
+            .create();
     private final String fileName;
     private final ConsoleManager consoleManager = new ConsoleManager();
     public FileManager(String fileName){

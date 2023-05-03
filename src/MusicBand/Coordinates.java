@@ -2,6 +2,7 @@ package MusicBand;
 
 import Exceptions.IllegalValuesException;
 import Utility.Validation;
+import com.google.gson.annotations.Expose;
 
 /**
  * Шаблон класса Coordinates. Содержит геттеры и сеттеры для всех полей
@@ -9,8 +10,11 @@ import Utility.Validation;
  * @author maria
  */
 public class Coordinates {
+    @Expose
     private int x; //Максимальное значение поля: 223
+    @Expose
     private int y; //Значение поля должно быть больше -326
+
     private final Validation validation = new Validation();
     public Coordinates(int x, int y) throws IllegalValuesException {
         this.setX(x);
