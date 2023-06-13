@@ -1,6 +1,7 @@
-import FileManager.FileManager;
-import Utility.CollectionManager;
-import Utility.CommandManager;
+import common.FileManager.FileManager;
+import common.Message.Request;
+import common.Utility.CollectionManager;
+import common.Utility.CommandManager;
 import java.io.IOException;
 import java.util.*;
 public class Main {
@@ -9,6 +10,8 @@ public class Main {
         CollectionManager collectionManager = new CollectionManager(fileManagerReader.readFromFile());
         List<String> fileNameList = new ArrayList<>();
         CommandManager commandManager = new CommandManager(collectionManager, fileManagerReader, fileNameList);
-        commandManager.commandExecute();
+        Request request = new Request("show", "1", null, false);
+        String show = commandManager.commandExecute(request);
+        System.out.println(show);
     }
 }
