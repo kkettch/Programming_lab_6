@@ -186,20 +186,23 @@ public class CreatorOfMusicBand {
             try{
                 personBirthday = consoleManager.getString().trim();
                 String[] personBirthdayArray = personBirthday.split("-");
-                int year = Integer.parseInt(personBirthdayArray[0]);
-                int month = Integer.parseInt(personBirthdayArray[1]);
-                int day = Integer.parseInt(personBirthdayArray[2]);
-                if (personBirthdayArray[0].length() < 4 || year > 2023) {
-                    consoleManager.println("Год указан неверно!");
-                } else if (personBirthdayArray[1].length() < 2 || month < 1 || month > 12) {
-                    consoleManager.println("Месяц указан неверно!");
-                } else if (personBirthdayArray[2].length() < 2 || day > 31 || day < 1) {
-                    consoleManager.println("День указан неверно");
-                } else {
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    date = dateFormat.parse(personBirthday);
-                    break;
-                }
+                if (personBirthdayArray.length == 3) {
+                    int year = Integer.parseInt(personBirthdayArray[0]);
+                    int month = Integer.parseInt(personBirthdayArray[1]);
+                    int day = Integer.parseInt(personBirthdayArray[2]);
+                    if (personBirthdayArray[0].length() < 4 || year > 2023) {
+                        consoleManager.println("Год указан неверно!");
+                    } else if (personBirthdayArray[1].length() < 2 || month < 1 || month > 12) {
+                        consoleManager.println("Месяц указан неверно!");
+                    } else if (personBirthdayArray[2].length() < 2 || day > 31 || day < 1) {
+                        consoleManager.println("День указан неверно");
+                    } else {
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        date = dateFormat.parse(personBirthday);
+                        break;
+                    }
+                } else throw new NumberFormatException();
+
             } catch (NumberFormatException msg) {
                 consoleManager.println("Укажите дату в верном формате! Верный формат: yyyy-MM-dd");
             } catch (ParseException msg) {

@@ -108,6 +108,9 @@ public class CommandManager {
                 } else throw new InvalidInputException();
             }
             if (commandWithObject().contains(commandName)) { //проверка на команду с вводом объекта
+                if (!commandName.equals("update") && userInput.length > 1) {
+                    throw new InvalidInputException();
+                }
                 MusicBand musicBand = new MusicBand();
                 String argument;
                 if (userInput.length == 2) {

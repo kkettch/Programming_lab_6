@@ -1,6 +1,7 @@
+help
 
-
-
-remove_by_id 3
-info
-execute_script commands.txt
+show
+update 4
+update 3
+exit
+execute_script script.txt
